@@ -60,13 +60,13 @@ const WishesList = () => {
           }`}
           disabled={loading} // Disable while loading
         >
-          {loading ? "Refreshing..." : <IoMdRefresh className="w-6 h-6" />}
+          {loading ? "Memuat..." : <IoMdRefresh className="w-6 h-6" />}
         </button>
       </div>
 
       <div className="max-h-[500px] overflow-y-auto">
         {wishes.length === 0 ? (
-          <p>No wishes available</p>
+          <p>Belum ada ucapan.</p>
         ) : (
           wishes.map((wish) => (
             <div key={wish._id} className="mb-4">
@@ -98,7 +98,7 @@ const WishesList = () => {
           Sebelumnya
         </button>
         <p className="text-xs">
-          Page {page} of {totalPages}
+          Halaman {page} dari {totalPages}
         </p>
         <button
           onClick={handleNextPage}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Ovo } from "@next/font/google";
+import { Ovo } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { config } from "@/lib/config";
@@ -30,8 +30,8 @@ const ovo = Ovo({
 
 
 export const metadata: Metadata = {
-  title: `The Wedding of ${config.coupleNames}`,
-  description: `Wedding Invitation of ${config.coupleNames}, made by Peter Shaan`,
+  title: `Undangan Pernikahan ${config.coupleNames}`,
+  description: `Template portofolio undangan pernikahan digital untuk ${config.coupleNames}.`,
 };
 
 export default function RootLayout({
@@ -40,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="id">
       <body
         className={`bg-[#0a0a0a]  ${ovo.variable} ${thesignature.variable} ${wonder.variable} ${legan.variable}  antialiased`}
       >

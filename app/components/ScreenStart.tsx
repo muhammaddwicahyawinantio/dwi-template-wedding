@@ -39,7 +39,7 @@ const ScreenStart = () => {
     >
       <TypeAnimation
         sequence={[
-          "THE WEDDING OF",
+          "UNDANGAN PERNIKAHAN",
           2000, 
           config.coupleNames.toUpperCase(),
           1000,

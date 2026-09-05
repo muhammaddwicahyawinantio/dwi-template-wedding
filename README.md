@@ -1,125 +1,67 @@
-<p href="#" align="center">
-  <img alt=" Weedingly Free – an open-source wedding invitation." src="public/remove_me/logo.png" width="100" >
-  <h1 align="center">Weedingly</h1>
-  <p align="center">
-        Made with ❤️ by <a ref="https://github.com/petershaan12">Peter Shaan</a>.
-    </p>
-</p>
+# Wedding Portfolio Template
 
-<p align="center">
-  Weedingly Free – an open-source wedding invitation. </br>
-</p>
+Template portofolio undangan pernikahan digital berbasis Next.js, Tailwind CSS, dan MongoDB. Konten default sudah dibuat sebagai contoh fiktif minimalis elegan `Arka & Liora`, sehingga siap dipakai sebagai demo atau diganti untuk klien berikutnya.
 
-<p align="center">
- <a href="https://nextjs.org/">
-       <img alt="Next.js logo" src="https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_light_background.png" height="75">
-    </a>
-    <a href="https://www.mongodb.com/">
-        <img src="https://cdn.iconscout.com/icon/free/png-256/mongodb-5-1175140.png" height="75">
-    </a>
-    <a href="https://vercel.com"><img alt="Vercel logo" src="https://img.shields.io/badge/MADE%20BY%20Vercel-000000.svg?style=for-the-badge&logo=Vercel&labelColor=000"></a>
-     <a href="https://github.com/petershaan12/Weddingly-Free/blob/main/LICENSE">
-        <img src="https://img.shields.io/npm/l/next.svg?style=for-the-badge&labelColor=000000" />
-    </a>
-</p>
+## Fitur
 
-## About
+- Halaman undangan digital dengan pembuka, cerita pasangan, detail acara, countdown, video prewedding, RSVP, dan daftar ucapan.
+- Konfigurasi konten melalui environment variable.
+- RSVP dan ucapan tersimpan di MongoDB Atlas.
+- Asset gambar lokal sudah diganti dengan stok fiktif bernuansa minimalis elegan dari Unsplash.
+- Siap deploy ke Vercel.
 
-This is a modern and fully customizable wedding invitation template built using **Next.js**, **TypeScript**, **TailwindCSS**, **react-type-animation**, and **react-intersection-observer**. It's designed to be user-friendly, allowing couples to personalize their wedding details easily.
+## Setup Lokal
 
-## RSVP Feature with MongoDB
-
-Weedingly includes a built-in RSVP feature that allows guests to confirm their attendance easily. The RSVP form can be customized to include additional questions or information as needed. The responses are stored in a database for easy management and tracking.
-
----
-
-This project was inspired by the beautiful designs found on [Groove Public](https://groovepublic.com/reveused/). You can edit, improvise, and customize the template to suit your unique wedding theme and preferences. Feel free to add your personal touch and make it truly yours 🥳😃.
-
----
-
-## Features
-
-- **Next.js + TypeScript**: A modern framework for building fast and scalable web applications.
-- **TailwindCSS**: A utility-first CSS framework for rapid UI development.
-- **react-type-animation**: Animate typewriter-style text on your invitation.
-- **react-intersection-observer**: Enable smooth animations as the user scrolls.
-- **Dynamic Configuration**: Use environment variables to update wedding details like dates, locations, and Google Maps links.
-- **Responsive Design**: Fully responsive design that works on various screen sizes.
-- **RSVP Management**: Easily manage guest responses with a built-in RSVP feature.
-- **MongoDB Integration**: Store and manage RSVP data using MongoDB.
-- **Customizable RSVP Form**: Tailor the RSVP form to include additional questions or information.
-- **RSVP Tracking**: Keep track of guest responses and manage attendance efficiently.
-
----
-
-## How to Use
-
-1. **Clone the repository**:
+1. Install dependency:
 
    ```bash
-   git clone https://github.com/petershaan12/wedding-invitation.git
-   cd wedding-invitation
-   npm i
+   npm install
    ```
-2. **Set up environment variables: Create a .env.local file in your root directory and add the following in .env.example**
-3. **Create Database in MongoDB**:
-   Create a new database in MongoDB and name it `wish`. Inside this database, create a collection named `wishes`.
-4. **Run The Project**
 
-    ```bash
-    npm install
-    npm run dev
-    ```
+2. Buat file `.env.local` dari `.env.example`, lalu isi `MONGODB_URI` dengan connection string MongoDB Atlas.
 
-5. **Deploy to Vercel**:
+3. Jalankan project:
 
-    You can easily deploy your project to Vercel by following these steps:
+   ```bash
+   npm run dev
+   ```
 
-    - If you don't have a Vercel account, sign up at [vercel.com](https://vercel.com/).
-    - Install the Vercel CLI:
+4. Buka alamat lokal yang muncul di terminal.
 
-      ```bash
-      npm install -g vercel
-      ```
+## Environment Variable
 
-    - Run the following command in your project directory:
+Minimal untuk deploy:
 
-      ```bash
-      vercel
-      ```
+```env
+MONGODB_URI="mongodb+srv://username:password@cluster.mongodb.net/wedding_portfolio?retryWrites=true&w=majority"
+MONGODB_DB_NAME="wedding_portfolio"
+NEXT_PUBLIC_EVENT_DATE="2027-01-01T10:00:00"
+NEXT_PUBLIC_COUPLE_NAMES="Arka & Liora"
+NEXT_PUBLIC_GROOM_NAME="Arka Pradana"
+NEXT_PUBLIC_BRIDE_NAME="Liora Anindya"
+NEXT_PUBLIC_RSVP=true
+```
 
-    - Follow the prompts to link your project to your Vercel account and deploy it.
+Variabel lengkap tersedia di `.env.example`.
 
-    Your wedding invitation will be live and accessible via the URL provided by Vercel.
+## Deploy ke Vercel
 
-## Contributing
+1. Push project ke repository Git.
+2. Import repository ke Vercel.
+3. Di menu Environment Variables Vercel, salin nilai dari `.env.local` atau `.env.example` yang sudah diisi.
+4. Pastikan `MONGODB_URI` memakai connection string MongoDB Atlas yang valid.
+5. Deploy.
 
-This project is open to contributions. Feel free to fork it, improve it, or submit pull requests with new features or fixes.
+Build command default:
 
-## Customization
+```bash
+npm run build
+```
 
-You can customize the following via environment variables:
+Output framework otomatis dikenali oleh Vercel sebagai Next.js.
 
-* Wedding Name, Dates, Countdown
-* Your OWN RSVP
-* Music in `public\music\wedding_song.mp3`
-* Picture in the public folder
+## Kustomisasi
 
-  * `public/slide_1 to slide_9` for the slider images on each slide.
-  * `public/foto_1_samping` for the desktop view picture.
-  * `public/foto_1 to foto_4` for fade-in animations at the start of the page.
-* Event Details (Holy Matrimony & Wedding Reception)
-* Google Maps Links
-* Youtube Links For Streaming
-* YouTube Code Embed for Video : Embed YouTube videos using iframe code and take the foto like below
-
-<p align="center">
-<img src="public/remove_me/take_this.png" width="280" height="200" style="margin:auto" />
-</p>
-
-* Custom Guest Names: If you'd like to personalize guest names such as Dear Peter or to:John, set your url with "to:".
-  ex (`https://weddingly-free.vercel.app/to:Edward%20Tauran`)
-
-## License
-
-This template is provided under the MIT License. You are free to use, modify, and distribute it.
+- Ganti nama, tanggal, lokasi, cerita, kutipan, link Google Maps, link live streaming, dan video prewedding melalui environment variable.
+- Ganti gambar di folder `public` bila ingin membuat versi klien tertentu.
+- Untuk undangan personal, gunakan URL seperti `/to:Nama%20Tamu`.

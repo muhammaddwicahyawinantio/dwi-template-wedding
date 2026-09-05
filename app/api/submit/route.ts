@@ -16,11 +16,10 @@ export async function POST(req: Request) {
     );
   } catch (error) {
     console.error(error);
-    return new NextResponse("Failed to submit RSVP", { status: 500 });
+    return new NextResponse("Gagal mengirim RSVP", { status: 500 });
   }
 }
 
-// Optional: Handler untuk method yang tidak diizinkan
 export async function GET() {
   return new NextResponse("Method Not Allowed", { status: 405 });
 }

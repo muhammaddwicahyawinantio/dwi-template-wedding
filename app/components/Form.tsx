@@ -23,7 +23,7 @@ const Form = () => {
 
 
     if (!data.name || !data.attendance || !data.guests || !data.message) {
-      alert("All fields are required!");
+      alert("Semua kolom wajib diisi.");
       setLoading(false); 
       return;
     }
@@ -39,9 +39,9 @@ const Form = () => {
     if (response.ok) {
       // Reset the form if submission is successful
       form.reset();
-      alert("RSVP submitted successfully!");
+      alert("RSVP dan ucapan berhasil dikirim.");
     } else {
-      alert("Failed to submit RSVP");
+      alert("Gagal mengirim RSVP. Silakan coba lagi.");
     }
 
     setLoading(false); // Set loading to false after response
@@ -52,7 +52,7 @@ const Form = () => {
       {/* Form fields */}
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-white">
-          Nama
+          Nama Tamu
         </label>
         <input
           type="text"
@@ -68,7 +68,7 @@ const Form = () => {
           htmlFor="attendance"
           className="block text-sm font-medium text-white"
         >
-          Kehadiran
+          Konfirmasi Kehadiran
         </label>
         <select
           id="attendance"
@@ -108,7 +108,7 @@ const Form = () => {
           htmlFor="message"
           className="block text-sm font-medium text-white"
         >
-          Ucapan
+          Ucapan dan Doa
         </label>
         <textarea
           id="message"
@@ -125,7 +125,7 @@ const Form = () => {
           className="block w-full p-2 text-sm font-medium text-center text-black bg-white border border-transparent rounded-md shadow-sm"
           disabled={loading} 
         >
-          {loading ? "Submitting..." : "Submit"} 
+          {loading ? "Mengirim..." : "Kirim RSVP"} 
         </button>
       </div>
     </form>
